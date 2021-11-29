@@ -39,9 +39,34 @@ namespace DrinkPercentages
 
         private void bCalculate_Click(object sender, EventArgs e)
         {
-            tbContainerSize.Text = logic.ContainerSize.ToString();
-            tbContainerCount.Text = logic.ContainerCount.ToString();
-            tbAlcoholPercentage.Text = logic.AlcoholPercentage.ToString();
+            if (!float.TryParse(tbContainerSize.Text, out float size))
+            {
+                labelErrors.Text = "Błąd odczytu rozmiaru naczynia.";
+                return;
+            }
+            if (!float.TryParse(tbAlcoholPercentage.Text, out float percentage))
+            {
+                labelErrors.Text = "Błąd odczytu zawartości alkoholu.";
+                return;
+            }
+            if (!int.TryParse(tbContainerCount.Text, out int count))
+            {
+                labelErrors.Text = "Błąd odczytu ilości naczyń.";
+                return;
+            }
+            labelErrors.Text = "";
+
+            try
+            {
+                logic.AlcoholPercentage = percentage;
+                logic.ContainerCount = count;
+                logic.ContainerSize = size;
+            }
+            catch (ArgumentException err)
+            {
+                labelErrors.Text = err.Message;
+            }
+
             tbDrinkVolume.Text = logic.DrinkVolume.ToString();
             tbAlcoholVolume.Text = logic.AlcoholVolume.ToString();
         }

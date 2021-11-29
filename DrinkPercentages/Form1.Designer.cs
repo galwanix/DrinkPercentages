@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.labelErrors = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbContainerSize
@@ -92,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(384, 131);
+            this.label1.Location = new System.Drawing.Point(384, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 17);
             this.label1.TabIndex = 6;
@@ -143,11 +144,20 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Całkowita objętość alkoholu w napojach:";
             // 
+            // labelErrors
+            // 
+            this.labelErrors.AutoSize = true;
+            this.labelErrors.Location = new System.Drawing.Point(12, 196);
+            this.labelErrors.Name = "labelErrors";
+            this.labelErrors.Size = new System.Drawing.Size(0, 17);
+            this.labelErrors.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelErrors);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -181,6 +191,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelErrors;
     }
 }
 
