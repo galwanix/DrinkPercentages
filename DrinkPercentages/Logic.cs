@@ -8,15 +8,52 @@ namespace DrinkPercentages
 {
     class Logic
     {
-        private float containerSize,
-            alcoholPercentage;
-        private int containerNumber;
+        private float containerSize = 0f,
+            alcoholPercentage = 0f;
+        private int containerNumber = 0;
+        private Dictionary<string, float> alcohols, glasses;
 
         public Logic()
         {
-            ContainerCount = 3;
-            ContainerSize = 0.75f;
-            AlcoholPercentage = 3.5f;
+            alcohols = new Dictionary<string, float>
+            {
+                { "Wino", 12.5f },
+                {"Piwo", 5 },
+                {"Wódka", 40 },
+                {"Cydr", 7 },
+                {"Miód pitny", 15 }
+            };
+            glasses = new Dictionary<string, float>
+            {
+                {"Kufel mały", 500 },
+                {"Kufel średni", 750 },
+                {"Kufel duży", 1000 },
+                {"Kieliszek mały", 20 },
+                {"Kieliszek średni", 50 },
+                {"Kieliszek duży", 100 }
+            };
+        }
+        public string[] GetGlassNames()
+        {
+            return glasses.Keys.ToArray();
+        }
+        public string[] GetAlcoholNames()
+        {
+            return alcohols.Keys.ToArray();
+        }
+        public float GetGlassSize(string name)
+        {
+            if (glasses.TryGetValue(name, out float size))
+                return size;
+            else
+                return 0;
+        }
+        public float GetAlcoholPercentage(string name)
+        {
+            if (alcohols.TryGetValue(name, out float percent))
+                return percent;
+            else
+                return 0;
         }
 
         public float ContainerSize
