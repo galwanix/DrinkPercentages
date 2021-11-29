@@ -22,19 +22,19 @@ namespace DrinkPercentages
         public float ContainerSize
         {
             get => containerSize;
-            set => containerSize = value;
+            set => containerSize = value > 0 ? value : 0;
         }
         public float AlcoholPercentage
         {
             get => alcoholPercentage;
-            set => alcoholPercentage = value;
+            set => alcoholPercentage = (value > 0 && value < 100) ? value : 0;
         }
         public int ContainerCount
         {
             get => containerNumber;
-            set => containerNumber = value;
+            set => containerNumber = value > 0 ? value : 0;
         }
         public float DrinkVolume => ContainerSize * ContainerCount;
-        public float AlcoholVolume => ContainerSize * ContainerCount * AlcoholPercentage / 100;
+        public float AlcoholVolume => DrinkVolume * AlcoholPercentage / 100;
     }
 }
